@@ -62,26 +62,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
                 try {
                     latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("My Position"));
+                    mMap.addMarker(new MarkerOptions().position(latLng).title("Moja pozycja"));
 
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
-                    String phoneNumber = "99999";
+                   // String phoneNumber = "9999";
                     String myLatidude = String.valueOf(location.getLatitude());
                     String myLongitude = String.valueOf(location.getLongitude());
 
                     String message = "Latitude = " + myLatidude + " Longitude = " + myLongitude;
-                    SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage(phoneNumber,null,message,null,null);
+                    //SmsManager smsManager = SmsManager.getDefault();
+                    //smsManager.sendTextMessage(phoneNumber,null,message,null,null);
                 }
                 catch (Exception e){
                     e.printStackTrace();

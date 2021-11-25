@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Lokalizacja2</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="GetLocation">Get Location</string>
 </resources>
